@@ -1,0 +1,12 @@
+### POST Create new patient
+PUT http://localhost:4000/patients/9bc20dca-7ad5-462d-b4a4-804dd30b6d49
+Content-Type: application/json
+
+{
+  "firstName": "Isabella updated",
+  "lastName": "Coleman",
+  "email": "isabella.coleman_updated@example.com",
+  "dateOfBirth": "1990-05-03T00:00:00"
+}
+
+###

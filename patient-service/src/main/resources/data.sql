@@ -1,4 +1,6 @@
-CREATE TABLE patient (
+DROP TABLE IF EXISTS patient;
+
+CREATE TABLE IF NOT EXISTS patient (
                          id UUID PRIMARY KEY,
                          first_name VARCHAR(255) NOT NULL,
                          last_name VARCHAR(255) NOT NULL,
@@ -8,44 +10,24 @@ CREATE TABLE patient (
 );
 
 INSERT INTO patient (id, first_name, last_name, email, date_of_birth, date_of_registration) VALUES
-                                                                                                (RANDOM_UUID(), 'John', 'Doe', 'john.doe1@example.com', '1990-05-15', NOW()),
-                                                                                                (RANDOM_UUID(), 'Jane', 'Smith', 'jane.smith1@example.com', '1985-08-22', NOW()),
-                                                                                                (RANDOM_UUID(), 'Alice', 'Brown', 'alice.brown1@example.com', '2000-01-10', NOW()),
-                                                                                                (RANDOM_UUID(), 'Michael', 'Johnson', 'michael.johnson1@example.com', '1992-07-04', NOW()),
-                                                                                                (RANDOM_UUID(), 'Emily', 'Davis', 'emily.davis1@example.com', '1988-03-21', NOW()),
-                                                                                                (RANDOM_UUID(), 'Chris', 'Wilson', 'chris.wilson1@example.com', '1995-11-30', NOW()),
-                                                                                                (RANDOM_UUID(), 'Jessica', 'Martinez', 'jessica.martinez1@example.com', '1993-06-25', NOW()),
-                                                                                                (RANDOM_UUID(), 'Daniel', 'Taylor', 'daniel.taylor1@example.com', '1987-09-14', NOW()),
-                                                                                                (RANDOM_UUID(), 'Sophia', 'Harris', 'sophia.harris1@example.com', '1991-04-12', NOW()),
-                                                                                                (RANDOM_UUID(), 'David', 'Clark', 'david.clark1@example.com', '1994-12-03', NOW()),
+                                                                                                ('123e4567-e89b-12d3-a456-426614174000', 'John', 'Doe', 'john.doe1@example.com', '1990-05-15', NOW()),
+                                                                                                ('123e4567-e89b-12d3-a456-426614174001', 'Jane', 'Smith', 'jane.smith1@example.com', '1985-08-22', NOW()),
+                                                                                                ('123e4567-e89b-12d3-a456-426614174002', 'Alice', 'Brown', 'alice.brown1@example.com', '2000-01-10', NOW()),
+                                                                                                ('123e4567-e89b-12d3-a456-426614174003', 'Michael', 'Johnson', 'michael.johnson1@example.com', '1992-07-04', NOW()),
+                                                                                                ('123e4567-e89b-12d3-a456-426614174004', 'Emily', 'Davis', 'emily.davis1@example.com', '1988-03-21', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174005', 'Chris', 'Wilson', 'chris.wilson1@example.com', '1995-11-30', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174006', 'Jessica', 'Martinez', 'jessica.martinez1@example.com', '1993-06-25', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174007', 'Daniel', 'Taylor', 'daniel.taylor1@example.com', '1987-09-14', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174008', 'Sophia', 'Harris', 'sophia.harris1@example.com', '1991-04-12', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174009', 'David', 'Clark', 'david.clark1@example.com', '1994-12-03', NOW()),
 
-                                                                                                (RANDOM_UUID(), 'Olivia', 'Lewis', 'olivia.lewis1@example.com', '1997-01-20', NOW()),
-                                                                                                (RANDOM_UUID(), 'Ethan', 'Walker', 'ethan.walker1@example.com', '1989-05-27', NOW()),
-                                                                                                (RANDOM_UUID(), 'Mia', 'Young', 'mia.young1@example.com', '1996-07-18', NOW()),
-                                                                                                (RANDOM_UUID(), 'James', 'King', 'james.king1@example.com', '1986-09-09', NOW()),
-                                                                                                (RANDOM_UUID(), 'Ella', 'Scott', 'ella.scott1@example.com', '2001-02-14', NOW()),
-                                                                                                (RANDOM_UUID(), 'Lucas', 'Adams', 'lucas.adams1@example.com', '1993-11-05', NOW()),
-                                                                                                (RANDOM_UUID(), 'Ava', 'Baker', 'ava.baker1@example.com', '1998-06-12', NOW()),
-                                                                                                (RANDOM_UUID(), 'Benjamin', 'Gonzalez', 'benjamin.gonzalez1@example.com', '1992-04-30', NOW()),
-                                                                                                (RANDOM_UUID(), 'Harper', 'Carter', 'harper.carter1@example.com', '1995-08-01', NOW()),
-                                                                                                (RANDOM_UUID(), 'Henry', 'Mitchell', 'henry.mitchell1@example.com', '1984-10-17', NOW()),
-
-                                                                                                (RANDOM_UUID(), 'Liam', 'Parker', 'liam.parker1@example.com', '1999-06-05', NOW()),
-                                                                                                (RANDOM_UUID(), 'Zoe', 'Evans', 'zoe.evans1@example.com', '2003-08-11', NOW()),
-                                                                                                (RANDOM_UUID(), 'Nathan', 'Turner', 'nathan.turner1@example.com', '1983-03-15', NOW()),
-                                                                                                (RANDOM_UUID(), 'Lily', 'Cruz', 'lily.cruz1@example.com', '1991-12-22', NOW()),
-                                                                                                (RANDOM_UUID(), 'Ryan', 'Murphy', 'ryan.murphy1@example.com', '1987-09-10', NOW()),
-                                                                                                (RANDOM_UUID(), 'Victoria', 'Reed', 'victoria.reed1@example.com', '1994-05-14', NOW()),
-                                                                                                (RANDOM_UUID(), 'Elijah', 'Bell', 'elijah.bell1@example.com', '1992-11-19', NOW()),
-                                                                                                (RANDOM_UUID(), 'Madison', 'Howard', 'madison.howard1@example.com', '1985-04-03', NOW()),
-                                                                                                (RANDOM_UUID(), 'Caleb', 'Foster', 'caleb.foster1@example.com', '1998-07-09', NOW()),
-                                                                                                (RANDOM_UUID(), 'Hannah', 'Graham', 'hannah.graham1@example.com', '2000-02-01', NOW()),
-
-                                                                                                (RANDOM_UUID(), 'Jacob', 'Simmons', 'jacob.simmons1@example.com', '1996-10-25', NOW()),
-                                                                                                (RANDOM_UUID(), 'Samantha', 'Ward', 'samantha.ward1@example.com', '1989-06-30', NOW()),
-                                                                                                (RANDOM_UUID(), 'Dylan', 'Bailey', 'dylan.bailey1@example.com', '1995-01-18', NOW()),
-                                                                                                (RANDOM_UUID(), 'Natalie', 'Lopez', 'natalie.lopez1@example.com', '1991-08-23', NOW()),
-                                                                                                (RANDOM_UUID(), 'Owen', 'Russell', 'owen.russell1@example.com', '1986-12-07', NOW()),
-                                                                                                (RANDOM_UUID(), 'Grace', 'Cunningham', 'grace.cunningham1@example.com', '2002-04-25', NOW()),
-                                                                                                (RANDOM_UUID(), 'Matthew', 'Henderson', 'matthew.henderson1@example.com', '1983-03-05', NOW()),
-                                                                                                (RANDOM_UUID(), 'Isabella', 'Coleman', 'isabella.coleman1@example.com', '1999-07-29', NOW());
+                                                                                                ('223e4567-e89b-12d3-a456-426614174010', 'Olivia', 'Lewis', 'olivia.lewis1@example.com', '1997-01-20', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174011', 'Ethan', 'Walker', 'ethan.walker1@example.com', '1989-05-27', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174012', 'Mia', 'Young', 'mia.young1@example.com', '1996-07-18', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174013', 'James', 'King', 'james.king1@example.com', '1986-09-09', NOW()),
+                                                                                                ('223e4567-e89b-12d3-a456-426614174014', 'Ella', 'Scott', 'ella.scott1@example.com', '2001-02-14', NOW()),
+                                                                                                ('323e4567-e89b-12d3-a456-426614174015', 'Lucas', 'Adams', 'lucas.adams1@example.com', '1993-11-05', NOW()),
+                                                                                                ('323e4567-e89b-12d3-a456-426614174016', 'Ava', 'Baker', 'ava.baker1@example.com', '1998-06-12', NOW()),
+                                                                                                ('323e4567-e89b-12d3-a456-426614174017', 'Benjamin', 'Gonzalez', 'benjamin.gonzalez1@example.com', '1992-04-30', NOW()),
+                                                                                                ('323e4567-e89b-12d3-a456-426614174018', 'Harper', 'Carter', 'harper.carter1@example.com', '1995-08-01', NOW()),
+                                                                                                ('323e4567-e89b-12d3-a456-426614174019', 'Henry', 'Mitchell', 'henry.mitchell1@example.com', '1984-10-17', NOW());

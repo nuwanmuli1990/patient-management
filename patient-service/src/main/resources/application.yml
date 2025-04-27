@@ -2,24 +2,38 @@ spring:
   application:
     name: patient-service
 
-  h2:
-    console:
-      path: /h2-console
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: admin_viewer
-    password: password
+#  h2:
+#    console:
+#      path: /h2-console
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: admin_viewer
+#    password: password
 
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
 
 
   sql:
     init:
-      mode: always
+      mode: never
+  liquibase:
+    ui-service:
+
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
 
 server:
   port: 4000
+
+billing:
+  service:
+    address: localhost
+    grpc:
+      port: 9001
+

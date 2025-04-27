@@ -1,7 +1,10 @@
 package com.mulitech.pm.patientservice.patient;
 
+import billing.BillingResponse;
 import com.mulitech.pm.patientservice.exception.PatientExistException;
 import com.mulitech.pm.patientservice.exception.PatientNotFoundException;
+import com.mulitech.pm.patientservice.grpc.BillingServiceGrpcClient;
+import com.mulitech.pm.patientservice.kafka.KafkaProducer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,8 @@ public class PatientService {
 
 	private final PatientRepository patientRepository;
 	private final PatientMapper patientMapper;
+	private final BillingServiceGrpcClient billingServiceGrpcClient;
+	private final KafkaProducer kafkaProducer;
 
 	public List<PatientResponse> findAllPatients() {
 		return patientMapper.toPatientResponceList(patientRepository.findAll());
@@ -26,6 +31,10 @@ public class PatientService {
 			throw new PatientExistException("Email already exist :"+patientRequest.email());
 		}
 		Patient patient = patientRepository.save(patientMapper.toPatient(patientRequest));
+
+		String patientName = patient.getFirstName() + " " + patient.getLastName();
+		billingServiceGrpcClient.createBillingAccount(patient.getId().toString(), patientName, patient.getEmail());
+		kafkaProducer.sendEvent(patient);
 		return patientMapper.toPatientResponse(patient);
 	}
 

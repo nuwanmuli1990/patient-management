@@ -33,3 +33,9 @@ build/
 .vscode/
 /mvnw
 /.gitattributes
+/auth-service/mvnw
+/auth-service/.mvn/wrapper/maven-wrapper.properties
+/api-gateway/mvnw.cmd
+/auth-service/mvnw.cmd
+/auth-service/.gitattributes
+/api-gateway/.gitattributes

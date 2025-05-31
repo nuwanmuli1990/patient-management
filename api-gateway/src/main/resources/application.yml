@@ -1,0 +1,43 @@
+server:
+  port: 4004
+
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        # REST CLIENT -> http://localhost:4004/api/patients
+        # re-writing -> http://patient-service:4000/patients
+        # PATIENT SERVICE (SPRING BOOT APP) -> /patients -> return patients' array
+        - id: patient-service-route
+          uri: http://patient-service:4000  #internal address of the service
+          predicates:
+            - Path=/api/patients/**
+          filters:
+            - StripPrefix=1
+
+        # REST CLIENT -> http://localhost:4004/api-docs/patients
+        # re-writing -> http://patient-service:4000/v3/api-docs
+        # PATIENT SERVICE (SPRING BOOT APP) -> /patients -> return patients' array
+        - id: api-docs-patient-service
+          uri: http://patient-service:4000
+          predicates:
+            - Path=/api-docs/patients
+          filters:
+            - RewritePath=/api-docs/patien  ts,/v3/api-docs
+
+          # REST CLIENT -> http://localhost:4004/auth/login
+          # re-writing -> http://auth-service:4005/login
+
+          # REST CLIENT -> http://localhost:4004/auth/validate
+          # re-writing -> http://auth-service:4005/validate
+        - id: auth-service-routes
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+
+

@@ -23,7 +23,7 @@ public class AuthController {
 	public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
 		Optional<String> tokenOpt = authService.authenticate(loginRequest);
 		if (tokenOpt.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		}
 
 		String token = tokenOpt.get();

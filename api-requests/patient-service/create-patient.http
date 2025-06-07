@@ -1,9 +1,10 @@
 ### POST Create new patient
-POST http://localhost:4000/patients
+POST http://lb-7270ae3f.elb.localhost.localstack.cloud:4004/api/patients
+Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-  "firstName": "Lahiruka 123",
+  "firstName": "Lahiruka 123453",
   "lastName": "Kamal 122",
   "email": "dishLAHI@gmail12345.com",
   "dateOfBirth": "1992-05-05T00:00:00",

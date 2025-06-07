@@ -1,4 +1,4 @@
 ### GET request to get all patients. for API Gateway
-GET http://localhost:4004/api/patients
+GET http://lb-7270ae3f.elb.localhost.localstack.cloud:4004/api/patients
 Authorization: Bearer {{token}}
 ###
